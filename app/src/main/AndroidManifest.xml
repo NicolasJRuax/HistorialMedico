@@ -19,7 +19,7 @@
         </activity>
         <activity android:name=".medicalHistory.MedicalRecordActivity" />
         <activity android:name=".medicalHistory.LoginActivity" />
+        <activity android:name=".medicalHistory.ViewAllRecordsActivity" />
 
     </application>
 </manifest>
-

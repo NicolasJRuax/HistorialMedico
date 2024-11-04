@@ -6,6 +6,8 @@ import androidx.room.RoomDatabase;
 
 import com.myproyect.HistorialMedico.medicalHistory.MedicalRecord;
 
+import java.util.List;
+
 @Database(entities = {MedicalRecord.class, User.class}, version = 3)
 public abstract class DatabaseHelper extends RoomDatabase {
     public abstract MedicalRecordDao medicalRecordDao();
@@ -37,6 +39,9 @@ public abstract class DatabaseHelper extends RoomDatabase {
         }).start();
     }
 
+    public static List<MedicalRecord> getAllMedicalRecords(Context context) {
+        return getDatabase(context).medicalRecordDao().getAllRecords();
+    }
 
 
     public static void createUser(Context context, String username, String password) {

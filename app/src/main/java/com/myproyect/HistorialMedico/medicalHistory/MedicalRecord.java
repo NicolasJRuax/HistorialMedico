@@ -19,4 +19,22 @@ public class MedicalRecord {
         this.treatment = treatment;
         this.notes = notes;
     }
+
+    public String getPatientName() {
+        return patientName;
+    }
+
+    public String getCondition() {
+        return condition;
+    }
+
+    public String getTreatment() {
+        return treatment;
+    }
+
+    public String getNotes() {
+        return notes;
+    }
+
+
 }

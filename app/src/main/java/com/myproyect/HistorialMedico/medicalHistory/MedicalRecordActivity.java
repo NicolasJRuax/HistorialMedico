@@ -1,5 +1,6 @@
 package com.myproyect.HistorialMedico.medicalHistory;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -42,6 +43,11 @@ public class MedicalRecordActivity extends AppCompatActivity {
                 btnDelete.setEnabled(true);
                 btnViewAll.setEnabled(true);
                 runOnUiThread(() -> Toast.makeText(this, "Record saved successfully", Toast.LENGTH_SHORT).show());
+            });
+
+            btnViewAll.setOnClickListener(x -> {
+                Intent intent = new Intent(MedicalRecordActivity.this, ViewAllRecordsActivity.class);
+                startActivity(intent);
             });
         });
     }
