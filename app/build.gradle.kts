@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace = "com.myproyect.hm"
+    namespace = "com.myproyect.HistorialMedico"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.myproyect.hm"
+        applicationId = "com.myproyect.HistorialMedico"
         minSdk = 30
         targetSdk = 34
         versionCode = 1
