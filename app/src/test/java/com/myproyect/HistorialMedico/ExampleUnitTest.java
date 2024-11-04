@@ -1,4 +1,4 @@
-package com.myproyect.p;
+package com.myproyect.HistorialMedico;
 
 import org.junit.Test;
 
