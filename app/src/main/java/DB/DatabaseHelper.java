@@ -1,5 +1,4 @@
 package DB;
-
 import android.content.Context;
 import androidx.room.Database;
 import androidx.room.Room;
@@ -7,9 +6,10 @@ import androidx.room.RoomDatabase;
 
 import com.myproyect.HistorialMedico.medicalHistory.MedicalRecord;
 
-@Database(entities = {MedicalRecord.class}, version = 1)
+@Database(entities = {MedicalRecord.class, User.class}, version = 3)
 public abstract class DatabaseHelper extends RoomDatabase {
     public abstract MedicalRecordDao medicalRecordDao();
+    public abstract UserDao userDao();
 
     private static DatabaseHelper INSTANCE;
 
@@ -19,6 +19,7 @@ public abstract class DatabaseHelper extends RoomDatabase {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                                     DatabaseHelper.class, "medical_history_db")
+                            .fallbackToDestructiveMigration() // Agrega esta línea
                             .build();
                 }
             }
@@ -26,13 +27,25 @@ public abstract class DatabaseHelper extends RoomDatabase {
         return INSTANCE;
     }
 
-    public static void saveMedicalInfo(Context context, String info, Runnable callback) {
+
+    public static void saveMedicalInfo(Context context, MedicalRecord record, Runnable onComplete) {
         new Thread(() -> {
-            MedicalRecord record = new MedicalRecord(info);
             getDatabase(context).medicalRecordDao().insertRecord(record);
-            if (callback != null) {
-                callback.run();
+            if (onComplete != null) {
+                onComplete.run();
             }
         }).start();
     }
+
+
+
+    public static void createUser(Context context, String username, String password) {
+        new Thread(() -> {
+            User user = new User(username, password);
+            getDatabase(context).userDao().insertUser(user);
+        }).start();
+    }
+
+
+
 }

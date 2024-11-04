@@ -5,14 +5,20 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.myproyect.HistorialMedico.R;
+
+import DB.DatabaseHelper;
 
 public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Crear un usuario de ejemplo
+        DatabaseHelper.createUser(this, "exampleUser", "examplePass");
 
         Button btnLogin = findViewById(R.id.btnLogin);
         Button btnViewRecords = findViewById(R.id.btnViewRecords);
@@ -30,5 +36,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, MedicalRecordActivity.class));
             }
         });
+
+
     }
 }

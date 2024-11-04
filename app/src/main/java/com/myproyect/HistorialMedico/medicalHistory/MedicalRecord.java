@@ -8,9 +8,15 @@ public class MedicalRecord {
     @PrimaryKey(autoGenerate = true)
     public int id;
 
-    public String recordDetails;
+    public String patientName;
+    public String condition;
+    public String treatment;
+    public String notes;
 
-    public MedicalRecord(String recordDetails) {
-        this.recordDetails = recordDetails;
+    public MedicalRecord(String patientName, String condition, String treatment, String notes) {
+        this.patientName = patientName;
+        this.condition = condition;
+        this.treatment = treatment;
+        this.notes = notes;
     }
 }
