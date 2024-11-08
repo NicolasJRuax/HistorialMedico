@@ -1,12 +1,15 @@
 package com.myproyect.HistorialMedico.medicalHistory;
 
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.myproyect.HistorialMedico.R;
+
 import java.util.List;
+
 import DB.DatabaseHelper;
 
 public class ViewAllRecordsActivity extends AppCompatActivity {
@@ -17,42 +20,24 @@ public class ViewAllRecordsActivity extends AppCompatActivity {
 
         TextView textViewRecords = findViewById(R.id.textViewRecords);
 
-        // Fetch all medical records from the database on a background thread
-        new FetchRecordsTask(textViewRecords).execute();
-    }
-
-    private static class FetchRecordsTask extends AsyncTask<Void, Void, List<MedicalRecord>> {
-        private final TextView textViewRecords;
-
-        FetchRecordsTask(TextView textViewRecords) {
-            this.textViewRecords = textViewRecords;
-        }
-
-        @Override
-        protected List<MedicalRecord> doInBackground(Void... voids) {
-            try {
-                return DatabaseHelper.getAllMedicalRecords(textViewRecords.getContext());
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-
-        @Override
-        protected void onPostExecute(List<MedicalRecord> records) {
+        // Obtener todos los historiales médicos utilizando el método asíncrono con callback
+        DatabaseHelper.getAllMedicalRecords(this, records -> {
             if (records != null && !records.isEmpty()) {
                 StringBuilder recordsDisplay = new StringBuilder();
                 for (MedicalRecord record : records) {
-                    recordsDisplay.append("Patient Name: ").append(record.getPatientName()).append("\n");
-                    recordsDisplay.append("Condition: ").append(record.getCondition()).append("\n");
-                    recordsDisplay.append("Treatment: ").append(record.getTreatment()).append("\n");
-                    recordsDisplay.append("Notes: ").append(record.getNotes()).append("\n\n");
+                    recordsDisplay.append("Nombre del Paciente: ").append(record.getPatientName()).append("\n");
+                    recordsDisplay.append("Condición: ").append(record.getCondition()).append("\n");
+                    recordsDisplay.append("Tratamiento: ").append(record.getTreatment()).append("\n");
+                    recordsDisplay.append("Notas: ").append(record.getNotes()).append("\n\n");
                 }
-                textViewRecords.setText(recordsDisplay.toString());
+                // Actualizar la interfaz de usuario en el hilo principal
+                runOnUiThread(() -> textViewRecords.setText(recordsDisplay.toString()));
             } else {
-                textViewRecords.setText("No records found.");
-                Toast.makeText(textViewRecords.getContext(), "No records to display", Toast.LENGTH_SHORT).show();
+                runOnUiThread(() -> {
+                    textViewRecords.setText("No se encontraron registros.");
+                    Toast.makeText(ViewAllRecordsActivity.this, "No hay registros para mostrar", Toast.LENGTH_SHORT).show();
+                });
             }
-        }
+        });
     }
 }

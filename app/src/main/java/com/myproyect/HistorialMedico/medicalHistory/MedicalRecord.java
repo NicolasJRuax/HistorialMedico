@@ -8,18 +8,22 @@ public class MedicalRecord {
     @PrimaryKey(autoGenerate = true)
     public int id;
 
+    public int userId; // ID del usuario asociado
+
     public String patientName;
     public String condition;
     public String treatment;
     public String notes;
 
-    public MedicalRecord(String patientName, String condition, String treatment, String notes) {
+    public MedicalRecord(int userId, String patientName, String condition, String treatment, String notes) {
+        this.userId = userId;
         this.patientName = patientName;
         this.condition = condition;
         this.treatment = treatment;
         this.notes = notes;
     }
 
+    // Getters y setters
     public String getPatientName() {
         return patientName;
     }
@@ -35,6 +39,4 @@ public class MedicalRecord {
     public String getNotes() {
         return notes;
     }
-
-
 }

@@ -2,10 +2,9 @@ package com.myproyect.HistorialMedico.medicalHistory;
 
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
-import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.myproyect.HistorialMedico.R;
 
@@ -17,26 +16,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Crear un usuario de ejemplo
-        DatabaseHelper.createUser(this, "exampleUser", "examplePass");
+        // Crear usuarios de ejemplo en un hilo de fondo
+        new Thread(() -> {
+            DatabaseHelper.createUser(this, "usuario1", "pass1", "user");
+            DatabaseHelper.createUser(this, "doctor1", "pass2", "doctor");
+        }).start();
 
         Button btnLogin = findViewById(R.id.btnLogin);
-        Button btnViewRecords = findViewById(R.id.btnViewRecords);
 
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, LoginActivity.class));
-            }
+        btnLogin.setOnClickListener(v -> {
+            startActivity(new Intent(MainActivity.this, LoginActivity.class));
         });
-
-        btnViewRecords.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, MedicalRecordActivity.class));
-            }
-        });
-
-
     }
 }

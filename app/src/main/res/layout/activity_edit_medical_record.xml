@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <EditText
+            android:id="@+id/editPatientName"
+            android:layout_width="match_parent"
+            android:padding="40dp"
+            android:layout_height="wrap_content"
+            android:hint="Nombre del paciente" />
+
+        <EditText
+            android:id="@+id/editCondition"
+            android:layout_width="match_parent"
+            android:padding="40dp"
+            android:layout_height="wrap_content"
+            android:hint="Condición" />
+
+        <EditText
+            android:id="@+id/editTreatment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="40dp"
+            android:hint="Tratamiento" />
+
+        <EditText
+            android:id="@+id/editNotes"
+            android:layout_width="match_parent"
+            android:padding="40dp"
+            android:layout_height="wrap_content"
+            android:hint="Notas" />
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Guardar" />
+
+        <Button
+            android:id="@+id/btnDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Eliminar" />
+
+    </LinearLayout>
+</ScrollView>

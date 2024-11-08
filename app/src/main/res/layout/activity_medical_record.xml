@@ -1,67 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/editMedicalInfo"
+    
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter medical details" />
+        android:padding="16dp">
 
-    <Button
-        android:id="@+id/btnSave"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Save Record" />
+        <TextView
+            android:id="@+id/textMedicalRecordTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Historial Médico Personal"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
 
-    <EditText
-        android:id="@+id/editPatientName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="48dp"
-        android:hint="Enter patient name" />
+        <!-- Campo: Nombre del Paciente -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/patientNameLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Nombre del Paciente"
+            app:layout_constraintTop_toBottomOf="@id/textMedicalRecordTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="24dp">
 
-    <EditText
-        android:id="@+id/editCondition"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="48dp"
-        android:hint="Enter condition" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editPatientName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
 
-    <EditText
-        android:id="@+id/editTreatment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="48dp"
-        android:hint="Enter treatment" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:id="@+id/editNotes"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="48dp"
-        android:hint="Enter notes" />
+        <!-- Campo: Condición -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/conditionLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Condición"
+            app:layout_constraintTop_toBottomOf="@id/patientNameLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp">
 
-    <Button
-        android:id="@+id/btnUpdate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Update" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editCondition"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
 
-    <Button
-        android:id="@+id/btnDelete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Delete" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
-        android:id="@+id/btnViewAll"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="View All" />
+        <!-- Campo: Tratamiento -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/treatmentLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Tratamiento"
+            app:layout_constraintTop_toBottomOf="@id/conditionLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp">
 
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTreatment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
 
+        </com.google.android.material.textfield.TextInputLayout>
 
-</LinearLayout>
+        <!-- Campo: Notas -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/notesLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Notas"
+            app:layout_constraintTop_toBottomOf="@id/treatmentLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editNotes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="100dp"
+                android:gravity="top"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Botón Guardar -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSave"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Guardar"
+            app:layout_constraintTop_toBottomOf="@id/notesLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="24dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
