@@ -19,6 +19,8 @@
             android:layout_height="wrap_content"
             android:text="Nombre del Paciente"
             android:textSize="18sp"
+            android:textColor="@color/primaryTextColor"
+
             android:textStyle="bold"/>
 
         <TextView
