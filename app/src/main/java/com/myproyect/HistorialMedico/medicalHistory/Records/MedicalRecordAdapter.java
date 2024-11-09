@@ -1,10 +1,9 @@
-package com.myproyect.HistorialMedico.medicalHistory;
+package com.myproyect.HistorialMedico.medicalHistory.Records;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.content.Context;
 
 import androidx.recyclerview.widget.RecyclerView;
 

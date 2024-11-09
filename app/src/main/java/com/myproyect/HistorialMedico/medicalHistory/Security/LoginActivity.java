@@ -1,4 +1,4 @@
-package com.myproyect.HistorialMedico.medicalHistory;
+package com.myproyect.HistorialMedico.medicalHistory.Security;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -9,9 +9,11 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.myproyect.HistorialMedico.R;
+import com.myproyect.HistorialMedico.medicalHistory.Doc.DoctorActivity;
+import com.myproyect.HistorialMedico.medicalHistory.Records.MedicalRecordActivity;
 
-import DB.DatabaseHelper;
-import DB.User;
+import com.myproyect.HistorialMedico.medicalHistory.DB.DatabaseHelper;
+import com.myproyect.HistorialMedico.medicalHistory.DB.User;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText editUsername;

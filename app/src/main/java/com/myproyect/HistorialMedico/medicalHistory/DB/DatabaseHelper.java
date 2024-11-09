@@ -1,4 +1,4 @@
-package DB;
+package com.myproyect.HistorialMedico.medicalHistory.DB;
 
 import android.content.Context;
 
@@ -6,8 +6,8 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-import com.myproyect.HistorialMedico.medicalHistory.MedicalRecord;
-import com.myproyect.HistorialMedico.medicalHistory.EncryptionUtils;
+import com.myproyect.HistorialMedico.medicalHistory.Records.MedicalRecord;
+import com.myproyect.HistorialMedico.medicalHistory.Security.EncryptionUtils;
 
 import java.util.ArrayList;
 import java.util.List;

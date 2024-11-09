@@ -1,4 +1,4 @@
-package DB;
+package com.myproyect.HistorialMedico.medicalHistory.DB;
 
 import androidx.room.Dao;
 import androidx.room.Insert;

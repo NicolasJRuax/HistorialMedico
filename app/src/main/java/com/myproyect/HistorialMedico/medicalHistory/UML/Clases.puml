@@ -1,0 +1,122 @@
+@startuml
+
+' Definición de clases
+
+class User {
+    - int id
+    - String username
+    - String password
+    - String role
+}
+
+class MedicalRecord {
+    - int id
+    - int userId
+    - String patientName
+    - String condition
+    - String treatment
+    - String notes
+}
+
+class DatabaseHelper {
+    + static getDatabase(Context): DatabaseHelper
+    + static createUser(Context, String, String, String): void
+    + static saveMedicalInfo(Context, MedicalRecord, Runnable): void
+    + static updateMedicalInfo(Context, MedicalRecord, Runnable): void
+    + static deleteMedicalInfo(Context, MedicalRecord, Runnable): void
+    + static getMedicalRecordByUserId(Context, int, MedicalRecordCallback): void
+    + static getAllMedicalRecords(Context, MedicalRecordsCallback): void
+}
+
+interface MedicalRecordDao {
+    + insertRecord(MedicalRecord): void
+    + updateRecord(MedicalRecord): void
+    + deleteRecord(MedicalRecord): void
+    + getAllRecords(): List<MedicalRecord>
+    + getRecordByUserId(int): MedicalRecord
+    + getRecordById(int): MedicalRecord
+}
+
+interface UserDao {
+    + insertUser(User): void
+    + authenticate(String, String): User
+}
+
+class AuthenticationManager {
+    + authenticate(Context, String, String, AuthenticationCallback): void
+}
+
+class EncryptionUtils {
+    + static encrypt(String): String
+    + static decrypt(String): String
+}
+
+class LoginActivity {
+    - EditText editUsername
+    - EditText editPassword
+    - Button btnLogin
+}
+
+class MainActivity {
+    - Button btnLogin
+}
+
+class MedicalRecordActivity {
+    - int userId
+    - MedicalRecord existingRecord
+    - EditText editPatientName
+    - EditText editCondition
+    - EditText editTreatment
+    - EditText editNotes
+    - Button btnSave
+}
+
+class DoctorActivity {
+    - RecyclerView recyclerViewRecords
+    - MedicalRecordAdapter adapter
+    - List<MedicalRecord> medicalRecords
+    - Button btnAddRecord
+}
+
+class EditMedicalRecordActivity {
+    - EditText editPatientName
+    - EditText editCondition
+    - EditText editTreatment
+    - EditText editNotes
+    - Button btnSave
+    - Button btnDelete
+    - int recordId
+    - MedicalRecord record
+}
+
+class MedicalRecordAdapter {
+    - List<MedicalRecord> medicalRecords
+    - OnItemClickListener listener
+    + interface OnItemClickListener
+}
+
+' Relaciones entre clases
+
+DatabaseHelper --> MedicalRecordDao : uses
+DatabaseHelper --> UserDao : uses
+
+MedicalRecordActivity --> DatabaseHelper : uses
+DoctorActivity --> DatabaseHelper : uses
+EditMedicalRecordActivity --> DatabaseHelper : uses
+LoginActivity --> AuthenticationManager : uses
+
+AuthenticationManager --> DatabaseHelper : uses
+MedicalRecordAdapter --> MedicalRecord : uses
+
+MedicalRecordDao ..|> Dao
+UserDao ..|> Dao
+
+' Paquetes opcionales para organizar
+
+package "DB" {
+    class DatabaseHelper
+    interface MedicalRecordDao
+    interface UserDao
+}
+
+@enduml

@@ -1,0 +1,27 @@
+@startuml
+
+actor Usuario
+actor Médico
+
+rectangle Sistema {
+    usecase "Iniciar Sesión" as UC_Login
+    usecase "Ver Historial Médico Propio" as UC_ViewOwnRecord
+    usecase "Editar Historial Médico Propio" as UC_EditOwnRecord
+    usecase "Ver Todos los Historiales Médicos" as UC_ViewAllRecords
+    usecase "Crear/Editar/Eliminar Historial Médico" as UC_ManageRecords
+}
+
+' Relaciones de los actores con los casos de uso
+
+Usuario --> UC_Login
+Usuario --> UC_ViewOwnRecord
+Usuario --> UC_EditOwnRecord
+
+Médico --> UC_Login
+Médico --> UC_ViewAllRecords
+Médico --> UC_ManageRecords
+
+' Extensiones y inclusiones
+
+
+@enduml

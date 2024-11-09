@@ -1,9 +1,9 @@
-package com.myproyect.HistorialMedico.medicalHistory;
+package com.myproyect.HistorialMedico.medicalHistory.Security;
 
 import android.content.Context;
 
-import DB.DatabaseHelper;
-import DB.User;
+import com.myproyect.HistorialMedico.medicalHistory.DB.DatabaseHelper;
+import com.myproyect.HistorialMedico.medicalHistory.DB.User;
 
 public class AuthenticationManager {
 

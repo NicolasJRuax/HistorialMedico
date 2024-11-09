@@ -7,8 +7,9 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.myproyect.HistorialMedico.R;
+import com.myproyect.HistorialMedico.medicalHistory.Security.LoginActivity;
 
-import DB.DatabaseHelper;
+import com.myproyect.HistorialMedico.medicalHistory.DB.DatabaseHelper;
 
 public class MainActivity extends AppCompatActivity {
     @Override

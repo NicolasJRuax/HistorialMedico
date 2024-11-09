@@ -1,4 +1,4 @@
-package com.myproyect.HistorialMedico.medicalHistory;
+package com.myproyect.HistorialMedico.medicalHistory.Security;
 
 import android.util.Base64;
 

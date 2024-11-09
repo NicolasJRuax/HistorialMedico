@@ -19,10 +19,10 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".medicalHistory.LoginActivity" />
-        <activity android:name=".medicalHistory.MedicalRecordActivity" />
-        <activity android:name=".medicalHistory.DoctorActivity" />
-        <activity android:name=".medicalHistory.EditMedicalRecordActivity" />
-        <activity android:name=".medicalHistory.ViewAllRecordsActivity" />
+        <activity android:name=".medicalHistory.Security.LoginActivity" />
+        <activity android:name=".medicalHistory.Records.MedicalRecordActivity" />
+        <activity android:name=".medicalHistory.Doc.DoctorActivity" />
+        <activity android:name=".medicalHistory.Records.EditMedicalRecordActivity" />
+        <activity android:name=".medicalHistory.Records.ViewAllRecordsActivity" />
     </application>
 </manifest>

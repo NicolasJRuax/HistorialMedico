@@ -1,4 +1,4 @@
-package com.myproyect.HistorialMedico.medicalHistory;
+package com.myproyect.HistorialMedico.medicalHistory.Records;
 
 import android.os.Bundle;
 import android.widget.TextView;
@@ -8,9 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.myproyect.HistorialMedico.R;
 
-import java.util.List;
-
-import DB.DatabaseHelper;
+import com.myproyect.HistorialMedico.medicalHistory.DB.DatabaseHelper;
 
 public class ViewAllRecordsActivity extends AppCompatActivity {
     @Override

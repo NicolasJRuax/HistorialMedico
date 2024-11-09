@@ -1,4 +1,4 @@
-package com.myproyect.HistorialMedico.medicalHistory;
+package com.myproyect.HistorialMedico.medicalHistory.Records;
 
 import android.os.Bundle;
 import android.widget.Button;
@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.myproyect.HistorialMedico.R;
 
-import DB.DatabaseHelper;
+import com.myproyect.HistorialMedico.medicalHistory.DB.DatabaseHelper;
 
 public class MedicalRecordActivity extends AppCompatActivity {
 

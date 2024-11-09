@@ -1,4 +1,4 @@
-package com.myproyect.HistorialMedico.medicalHistory;
+package com.myproyect.HistorialMedico.medicalHistory.Doc;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,11 +10,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.myproyect.HistorialMedico.R;
+import com.myproyect.HistorialMedico.medicalHistory.Records.EditMedicalRecordActivity;
+import com.myproyect.HistorialMedico.medicalHistory.Records.MedicalRecord;
+import com.myproyect.HistorialMedico.medicalHistory.Records.MedicalRecordAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import DB.DatabaseHelper;
+import com.myproyect.HistorialMedico.medicalHistory.DB.DatabaseHelper;
 
 public class DoctorActivity extends AppCompatActivity {
 

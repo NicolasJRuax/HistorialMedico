@@ -1,4 +1,4 @@
-package com.myproyect.HistorialMedico.medicalHistory;
+package com.myproyect.HistorialMedico.medicalHistory.Records;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;

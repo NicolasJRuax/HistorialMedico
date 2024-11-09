@@ -1,4 +1,4 @@
-package DB;
+package com.myproyect.HistorialMedico.medicalHistory.DB;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -6,7 +6,7 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import com.myproyect.HistorialMedico.medicalHistory.MedicalRecord;
+import com.myproyect.HistorialMedico.medicalHistory.Records.MedicalRecord;
 
 import java.util.List;
 
